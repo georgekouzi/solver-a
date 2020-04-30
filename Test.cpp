@@ -55,6 +55,8 @@ TEST_CASE("solver RealVariable"){
 TEST_CASE("solver ComplexVariable"){
     ComplexVariable x;
   
+    
+    
     CHECK(solve(2*x-4 == 10) ==std::complex<double>(7.2));
     CHECK(solve((x^2) == 16) ==std::complex<double>(7.2));
     CHECK(solve((x^2) == -16) ==std::complex<double>(7.2));//need to throw exception
@@ -96,6 +98,15 @@ TEST_CASE("solver ComplexVariable"){
     CHECK(solve(36*x+7 == 6) == std::complex<double>(7.2));
     CHECK(solve(2*x-4*x == 10) ==std::complex<double>(7.2));
     CHECK(solve(3*x^2+2*x+x+9.0 == 12-5*4) ==std::complex<double>(7.2));//or 3
-    
-    
+    CHECK(solve(2*x+4i == 10) ==std::complex<double>(7.2));
+    CHECK(solve((x^2) == x-16i) ==std::complex<double>(7.2));
+    CHECK(solve(x-5 == x-x+-6i) == std::complex<double>(5,-6));
+    CHECK(solve(5*x-5i == 5*x-5i) == std::complex<double>(0,0));
+    CHECK(solve((2*x)/3 == x-x+98+25i) == std::complex<double>(1,1));
+    CHECK(solve(x-5 == x-x+-6i) == std::complex<double>(5,0));
+    CHECK(solve((2*x)/3+3i == x-x+25i) == std::complex<double>(1,1));
+    CHECK(solve(2*x/2 == x+3i) == std::complex<double>(2,0));
+    CHECK(solve( x+6i==x-6i ) == std::complex<double>(0,12));
+    CHECK(solve(5*x == x+25i) == std::complex<double>(1,0));
+
 } 

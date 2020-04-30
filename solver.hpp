@@ -145,7 +145,9 @@ ComplexVariable& operator+(ComplexVariable num){
 //    friend ComplexVariable operator+(ComplexVariable& t,double num);
 //    friend ComplexVariable operator+(ComplexVariable& t,ComplexVariable& d);
  ///////////////////////////operator -////////////////////////////////////////
-
+ComplexVariable& operator-(std::complex<double>){
+     return *this;
+ }
 ComplexVariable& operator-(double num){
     return *this;
 }
