@@ -48,15 +48,28 @@ TEST_CASE("solver RealVariable"){
     CHECK(solve(36*x == 6) ==6);
     CHECK(solve(2*x-4*x == 10) ==-5);
     CHECK(solve(3*x == 12) ==4);//or 3
-    
-    
+    CHECK(solve(2*x+4 == 10) ==2);
+    CHECK(solve((x^2) == x) ==0);//or1
+    CHECK(solve(6*x== x-5) ==-1) ;
+    CHECK(solve(5*x==4*x-68) == -68);
+    CHECK(solve((2*x)/4 ==2 ) ==4);
+    CHECK(solve(x-5 == x-x-6) ==-1);
+    CHECK(solve((2*x)/2 == x-x) ==0);
+    CHECK(solve(2*x/2 == x) ==1 );
+    CHECK(solve( x+6==x-6 ) ==-1 );//throw
+    CHECK(solve(5*x == x+20) ==5 );
+
+
+
+
+
 } 
     
 TEST_CASE("solver ComplexVariable"){
     ComplexVariable x;
-  
-    
-    
+
+   
+   
     CHECK(solve(2*x-4 == 10) ==std::complex<double>(7.2));
     CHECK(solve((x^2) == 16) ==std::complex<double>(7.2));
     CHECK(solve((x^2) == -16) ==std::complex<double>(7.2));//need to throw exception
